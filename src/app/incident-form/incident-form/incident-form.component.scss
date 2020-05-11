@@ -1,0 +1,22 @@
+:host {
+  display: block;
+  width: 420px;
+}
+
+mat-toolbar {
+  >button {
+    margin-right: 8px;
+  }
+}
+
+form {
+  padding: 24px;
+  width: 380px;
+  margin: 0 auto;
+
+  .incident-date-time {
+    mat-form-field {
+      width: 160px;
+    }
+  }
+}

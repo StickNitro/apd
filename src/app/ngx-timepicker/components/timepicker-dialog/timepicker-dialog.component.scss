@@ -1,0 +1,132 @@
+.ngx-timepicker-dialog-v {
+  display: flex;
+  flex-direction: column;
+  max-height: 100%;
+  height: 400px;
+  overflow: hidden;
+  width: 300px;
+
+  .time-container {
+    padding: 15px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .selected-time {
+    font-size: 3rem;
+    display: flex;
+  }
+
+  .selected-meridian {
+    display: flex;
+    flex-direction: row;
+    align-content: flex-end;
+    align-items: center;
+    padding-top: 0.8em;
+  }
+
+  div[mat-dialog-actions] {
+    padding: 0;
+    flex-wrap: nowrap;
+    margin-bottom: 0;
+
+    button {
+      height: 52px;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+  }
+
+  .meridian-choice {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    margin-bottom: 5px;
+  }
+}
+
+.ngx-timepicker-dialog-h {
+  display: flex;
+  flex-direction: row;
+  max-height: 100%;
+  height: 330px;
+  overflow: hidden;
+
+  .time-container {
+    padding: 15px;
+    width: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &.mat-toolbar-single-row {
+      height: 100%;
+    }
+  }
+
+  .selected-time {
+    font-size: 3rem;
+    display: flex;
+  }
+
+  .selected-meridian {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    padding-top: 0.5em;
+  }
+
+  .mat-dialog-actions {
+    position: absolute;
+    bottom: 30px;
+    right: 10px;
+  }
+}
+
+.selected-time>span,
+.selected-meridian>span {
+  outline: 0;
+  opacity: 0.5;
+}
+
+.selected-time>span:not(.selected),
+.selected-meridian>span:not(.selected) {
+  cursor: pointer;
+}
+
+.selected-time>span.selected,
+.selected-meridian>span.selected {
+  opacity: 1;
+}
+
+.ngx-timepicker-clock-h {
+  padding: 24px;
+  margin-left: 30px;
+  margin-right: 30px;
+
+  div[mat-dialog-actions] {
+    margin-top: 50px;
+  }
+}
+
+.ngx-timepicker-clock-v {
+  padding: 20px;
+
+  div[mat-dialog-actions] {
+    margin-top: 50px;
+  }
+}
+
+.clock-container {
+  position: relative;
+  height: 100%;
+}
+
+.selected {
+  color: #ffffff;
+}

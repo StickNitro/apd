@@ -1,0 +1,46 @@
+<mat-toolbar color="accent">
+  <button type="button" mat-icon-button tabindex="-1" (click)="closeEditor.emit()">
+    <mat-icon>close</mat-icon>
+  </button>
+  <h2>Create Incident</h2>
+</mat-toolbar>
+<form [formGroup]="form" autocomplete="off" fxLayout="column" fxLayoutGap="24px">
+  <mat-form-field ngxErrors="title">
+    <mat-label>Title</mat-label>
+    <input type="text" matInput maxlength="100" formControlName="title" placeholder="Summary or title of incident"
+      required />
+    <mat-error ngxError="required" [when]="['invalid', 'touched']">A title is required</mat-error>
+    <mat-error ngxError="maxLength" [when]="['invalid', 'touched']">The length must not be more than 100 characters
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field ngxErrors="summary">
+    <mat-label>Incident Details</mat-label>
+    <textarea matInput rows="10" formControlName="summary" placeholder="Enter incident details"></textarea>
+    <mat-error ngxError="required" [when]="['invalid', 'touched']">Incident details are required</mat-error>
+  </mat-form-field>
+  <div class="incident-date-time" fxLayout="row" fxLayoutGap="12px">
+    <mat-form-field ngxErrors="date">
+      <mat-label>Incident date</mat-label>
+      <input matInput formControlName="date" [matDatepicker]="picker" />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error ngxError="required" [when]="['invalid', 'touched']">Incident date is required</mat-error>
+    </mat-form-field>
+    <mat-form-field ngxErrors="time">
+      <mat-label>Incident time</mat-label>
+      <ngx-timepicker-input formControlName="time" placeholder="8:00 AM" required></ngx-timepicker-input>
+      <mat-error ngxError="required" [when]="['invalid', 'touched']">Incident time is required</mat-error>
+    </mat-form-field>
+  </div>
+  <mat-form-field ngxErrors="location">
+    <mat-label>Incident location</mat-label>
+    <input matInput formControlName="location" />
+    <button matSuffix mat-icon-button>
+      <mat-icon>search</mat-icon>
+    </button>
+    <mat-hint>This would popup a search form, possibly with Google Maps and allow search for the location, display would be a summary of the location.</mat-hint>
+  </mat-form-field>
+  <div fxLayout="row" fxLayoutGap="12px">
+    <button type="button" mat-flat-button color="primary" (click)="onSave()">SAVE</button>
+  </div>
+</form>

@@ -1,0 +1,9 @@
+<div>
+  <input type="text" class="mat-input-element ngx-timepicker-input" [required]="required"
+    [placeholder]="placeholder" [disabled]="disabled" />
+  <button [color]="buttonColor" [class.mat-flat-button]="flat" [class.mat-raised-button]="raised"
+    mat-button type="button" class="ngx-timepicker-button" (click)="onShowTimePicker()"
+    cappTooltip="Choose a time" [disabled]="disabled">
+    <mat-icon>access_time</mat-icon>
+  </button>
+</div>

@@ -1,0 +1,16 @@
+@import "~@angular/material/theming";
+@import "./theming";
+
+@import "src/app/ngx-timepicker/scss/theming";
+
+@mixin apd-theme($primary, $accent, $warn: mat-palette($mat-red)) {
+  $theme: mat-light-theme($primary, $accent, $warn);
+
+  @include angular-material-theme($theme);
+
+  @include ngx-timepicker-theme($theme);
+
+  app-root .mat-sidenav-container {
+    height: 100%;
+  }
+}

@@ -1,1 +1,31 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/theming";
+@import "./scss/theming";
+@import "./scss/apd-theme";
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@include mat-core($apd-typography);
+
+$primary: mat-palette($mat-indigo);
+$accent: mat-palette($mat-pink);
+@include apd-theme($primary, $accent);
+
+[hidden] {
+  display: none;
+}
+
+mat-form-field {
+  width: 100%;
+}

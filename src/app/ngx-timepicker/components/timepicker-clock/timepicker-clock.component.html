@@ -1,0 +1,16 @@
+<div #clock class="ngx-clock">
+  <div class="ngx-clock-container">
+
+    <!-- Clock Center -->
+    <button mat-mini-fab color="secondary" class="ngx-clock-center"></button>
+
+    <!-- Clock Hand -->
+    <mat-toolbar [ngxClockHand]="currentView" [userTime]="userTime" class="ngx-pointer mat-secondary">
+      <button mat-mini-fab color="secondary" class="ngx-clock-selected mat-raised"></button>
+    </mat-toolbar>
+
+    <!-- Hour / Minute number faces -->
+    <button mat-mini-fab *ngFor="let step of steps; let i = index;"
+      [ngClass]="getTimeValueClass(step, i)">{{step}}</button>
+  </div>
+</div>

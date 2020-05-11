@@ -1,0 +1,36 @@
+<div mat-dialog-content class="ngx-timepicker-dialog-v">
+  <mat-toolbar color="primary" class="time-container">
+    <div class="selected-time">
+      <span (click)="setCurrentView(viewHours)" [class.selected]="currentView === viewHours">{{userTime
+        | amDateFormat:'h'}}</span>
+      <span>:</span>
+      <span (click)="setCurrentView(viewMinutes)" [class.selected]="currentView === viewMinutes">{{userTime
+        | amDateFormat:'mm'}}</span>
+    </div>
+    <div class="selected-meridian">
+      <span *ngIf="userTime.format('A') === 'AM'">AM</span>
+      <span *ngIf="userTime.format('A') === 'PM'">PM</span>
+    </div>
+  </mat-toolbar>
+
+  <div class="clock-container" fxLayout="column">
+    <div class="ngx-timepicker-clock-v">
+      <ngx-timepicker-clock class="ngx-animation-zoom" [(userTime)]="userTime" [(currentView)]="currentView"
+        (viewChange)="setCurrentView($event)"></ngx-timepicker-clock>
+    </div>
+
+    <div class="meridian-choice">
+      <button (click)="setMeridian('AM')" type="button" mat-mini-fab
+        [color]="userTime.format('A') === 'AM' ? 'primary' : 'grey'">AM</button>
+      <button (click)="setMeridian('PM')" type="button" mat-mini-fab
+        [color]="userTime.format('A') === 'PM' ? 'primary' : 'grey'">PM</button>
+    </div>
+
+    <mat-divider></mat-divider>
+    <div mat-dialog-actions flexLayout="row">
+      <button fxFlex="50" mat-button (click)="onCancel()">Cancel</button>
+      <mat-divider [vertical]="true" [style.height.px]="52"></mat-divider>
+      <button fxFlex="50" mat-button (click)="onSubmit()">OK</button>
+    </div>
+  </div>
+</div>

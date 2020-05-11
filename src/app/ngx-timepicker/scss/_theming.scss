@@ -1,0 +1,22 @@
+@import "~@angular/material/theming";
+@import "src/scss/theming";
+
+@mixin ngx-timepicker-theme($theme, $secondary: mat-palette($mat-blue)) {
+  $accent: map-get($theme, accent);
+
+  .mat-secondary {
+    background-color: mat-color($secondary, 500);
+    color: mat-contrast($secondary, 500);
+  }
+
+  .ngx-timepicker-dialog-container {
+    .mat-dialog-container {
+      padding: 0;
+      overflow: hidden;
+    }
+  }
+
+  .selected {
+    color: mat-color($accent, default-contrast);
+  }
+}

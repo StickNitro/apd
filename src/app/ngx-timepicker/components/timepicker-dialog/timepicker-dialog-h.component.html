@@ -1,0 +1,27 @@
+<div mat-dialog-content class="ngx-timepicker-dialog-h">
+  <mat-toolbar color="primary" class="time-container">
+    <div class="selected-time">
+      <span (click)="setCurrentView(viewHours)" [class.selected]="currentView === viewHours">{{userTime
+        | amDateFormat:'h'}}</span>
+      <span>:</span>
+      <span (click)="setCurrentView(viewMinutes)" [class.selected]="currentView === viewMinutes">{{userTime
+        | amDateFormat:'mm'}}</span>
+    </div>
+    <div class="selected-meridian">
+      <span (click)="setMeridian('AM')" [class.selected]="userTime.format('A') === 'AM'">AM</span>
+      <span (click)="setMeridian('PM')" [class.selected]="userTime.format('A') === 'PM'">PM</span>
+    </div>
+  </mat-toolbar>
+
+  <div class="clock-container" fxLayout="column">
+    <div class="ngx-timepicker-clock-h">
+      <ngx-timepicker-clock class="ngx-animation-zoom" [(userTime)]="userTime"
+        [(currentView)]="currentView" (viewChange)="setCurrentView($event)"></ngx-timepicker-clock>
+    </div>
+
+    <div mat-dialog-actions align="end">
+      <button mat-button (click)="onCancel()">Cancel</button>
+      <button mat-flat-button (click)="onSubmit()">OK</button>
+    </div>
+  </div>
+</div>
